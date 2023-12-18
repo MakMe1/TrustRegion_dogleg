@@ -8,9 +8,9 @@ def callback(state):
     print("Current position", state)
 
 # Initial guess
-initial_guess = np.array([-3.0, 1.0])
+initial_guess = np.array([-2.0, -2.0])
 
-fun = Paraboloid
+fun = Rosenbrock
 
 if __name__ == "__main__":
     res, points = custom_dogleg(
@@ -19,10 +19,10 @@ if __name__ == "__main__":
         args=(),
         # callback=callback,
         options={
-            'initial_trust_radius': 1,
-            # 'max_trust_radius': 10,
+            'initial_trust_radius': 0.25,
+            'max_trust_radius': 0.5,
             'disp': True, 
-            'maxiter': 15
+            # 'maxiter': 15
             },
         )
 
